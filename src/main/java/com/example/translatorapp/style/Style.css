@@ -1,0 +1,17 @@
+/* styles.css */
+
+/* Remove border and set background color for TextField */
+.text-field {
+    -fx-background-color: #c4c3d0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+}
+
+/* Remove border and set background color for ComboBox */
+.combo-box {
+    -fx-background-color: #c4c3d0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+}
