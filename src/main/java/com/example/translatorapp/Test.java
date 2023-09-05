@@ -1,7 +1,9 @@
 package com.example.translatorapp;
 
-public class App {
+public record Test(String name) {
+
     public static void main(String[] args) {
-        AppInitializer.main(args);
+        System.out.println("Hello Record");
+
     }
 }
