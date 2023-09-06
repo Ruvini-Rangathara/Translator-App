@@ -4,6 +4,7 @@ public class Language {
     public static String getLanguageCode(String language){
         switch (language){
             case "English": return "en";
+            case "Sinhala": return "si";
             case "French": return "fr";
             case "Spanish": return "es";
             case "German": return "de";

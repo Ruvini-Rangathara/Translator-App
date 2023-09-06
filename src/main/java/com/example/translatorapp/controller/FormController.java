@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class FormController implements Initializable {
 
     //Define the list of language names
     private final String[] languages = {
-            "English", "French", "Spanish", "German", "Italian", "Portuguese", "Dutch", "Russian",
+            "English", "French","Sinhala", "Spanish", "German", "Italian", "Portuguese", "Dutch", "Russian",
             "Chinese (Simplified)", "Japanese", "Korean", "Arabic", "Hindi", "Turkish", "Greek",
             "Swedish", "Norwegian", "Danish", "Finnish", "Polish", "Romanian", "Thai", "Vietnamese",
             "Malay", "Indonesian", "Hebrew", "Ukrainian", "Czech", "Hungarian", "Bulgarian", "Croatian",
@@ -54,8 +55,9 @@ public class FormController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        txtEnterText.setStyle("-fx-control-inner-background: #dbd7d2; -fx-background-insets: 0;-fx-background-radius: 0;-fx-border-width: 0;");
-        txtTranslationText.setStyle("-fx-control-inner-background: #b2beb5; -fx-background-insets: 0;-fx-background-radius: 0;-fx-border-width: 0;");
+
+        txtEnterText.setStyle("-fx-control-inner-background: #ADEFD1FF; -fx-text-fill:  #00203FFF; -fx-background-insets: 0;-fx-background-radius: 0;-fx-border-width: 0;");
+        txtTranslationText.setStyle("-fx-control-inner-background: #ADEFD1FF; -fx-text-fill:  #00203FFF; -fx-background-insets: 0;-fx-background-radius: 0;-fx-border-width: 0;");
         comboTranslator.setStyle("-fx-background-color: #c4c3d0; -fx-background-insets: 0;-fx-background-radius: 0;-fx-border-width: 0;");
         comboSource.setStyle("-fx-background-color: #c4c3d0; -fx-background-insets: 0;-fx-background-radius: 0;-fx-border-width: 0;");
 
@@ -74,19 +76,32 @@ public class FormController implements Initializable {
 
     @FXML
     void comboTranslatorOnAction(ActionEvent event) {
-        String translateLanguageCode = Language.getLanguageCode(String.valueOf(comboTranslator.getValue()));
-        Translation translation = translate.translate(
-                txtEnterText.getText(),
-                com.google.cloud.translate.Translate.TranslateOption.sourceLanguage(sourceLanguage),
-                com.google.cloud.translate.Translate.TranslateOption.targetLanguage(translateLanguageCode) // Corrected here
-        );
-        txtTranslationText.setText(translation.getTranslatedText());
+        if(comboTranslator.getValue()!=null){
+
+            String translateLanguageCode = Language.getLanguageCode(String.valueOf(comboTranslator.getValue()));
+            Translation translation = translate.translate(
+                    txtEnterText.getText(),
+                    com.google.cloud.translate.Translate.TranslateOption.sourceLanguage(sourceLanguage),
+                    com.google.cloud.translate.Translate.TranslateOption.targetLanguage(translateLanguageCode) // Corrected here
+            );
+            txtTranslationText.setText(translation.getTranslatedText());
+        }
+
     }
 
     @FXML
     void btnExitOnAction(ActionEvent event) {
         System.exit(0);
     }
+
+    @FXML
+    void btnOkOnAction(ActionEvent event) {
+        txtEnterText.setText(null);
+        txtTranslationText.setText(null);
+        comboTranslator.getSelectionModel().clearSelection();
+        comboSource.getSelectionModel().clearSelection();
+    }
+
 
 }
 

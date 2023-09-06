@@ -8,30 +8,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="context" prefHeight="517.0" prefWidth="750.0" style="-fx-background-color: #d3d3d3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.translatorapp.controller.FormController">
+<AnchorPane fx:id="context" prefHeight="517.0" prefWidth="750.0" style="-fx-background-color: #00203FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.translatorapp.controller.FormController">
    <children>
-      <Label alignment="CENTER" layoutX="206.0" layoutY="15.0" prefHeight="49.0" prefWidth="339.0" text="Language Translator">
+      <Label alignment="CENTER" layoutX="206.0" layoutY="27.0" prefHeight="49.0" prefWidth="339.0" text="Language Translator" textFill="#adefd1">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboSource" focusTraversable="false" layoutX="56.0" layoutY="92.0" onAction="#comboSourceOnAction" prefHeight="34.0" prefWidth="300.0" />
-      <ComboBox fx:id="comboTranslator" focusTraversable="false" layoutX="394.0" layoutY="92.0" onAction="#comboTranslatorOnAction" prefHeight="34.0" prefWidth="300.0" />
-      <Button layoutX="627.0" layoutY="467.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: #b2beb5; -fx-background-radius: 14px;" text="Exit" textFill="WHITE">
+      <ComboBox fx:id="comboSource" focusTraversable="false" layoutX="56.0" layoutY="111.0" onAction="#comboSourceOnAction" prefHeight="34.0" prefWidth="300.0" />
+      <ComboBox fx:id="comboTranslator" focusTraversable="false" layoutX="394.0" layoutY="111.0" onAction="#comboTranslatorOnAction" prefHeight="34.0" prefWidth="300.0" />
+      <Button layoutX="625.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: #a9a9a9; -fx-background-radius: 14px;" text="Exit" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextArea fx:id="txtEnterText" focusTraversable="false" layoutX="56.0" layoutY="143.0" prefHeight="200.0" prefWidth="300.0" promptText="Enter Text" style="-fx-background-color: #b2beb5;">
+      <TextArea fx:id="txtEnterText" focusTraversable="false" layoutX="56.0" layoutY="178.0" prefHeight="258.0" prefWidth="300.0" promptText="Enter Text" style="-fx-background-color: #b2beb5;" wrapText="true">
          <font>
             <Font size="25.0" />
          </font>
       </TextArea>
-      <TextArea fx:id="txtTranslationText" focusTraversable="false" layoutX="394.0" layoutY="143.0" prefHeight="200.0" prefWidth="300.0" promptText="Translation" style="-fx-background-color: #b2beb5;">
+      <TextArea fx:id="txtTranslationText" focusTraversable="false" layoutX="394.0" layoutY="178.0" prefHeight="258.0" prefWidth="300.0" promptText="Translation" style="-fx-background-color: #b2beb5;" wrapText="true">
          <font>
             <Font size="25.0" />
          </font>
       </TextArea>
+      <Button layoutX="540.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnOkOnAction" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: #a9a9a9; -fx-background-radius: 14px;" text="Ok" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
